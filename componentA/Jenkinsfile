@@ -13,5 +13,11 @@ pipeline {
                     echo 'Build from changed files'
                 }
         }
+        
+        stage('Git differeneces') {
+            steps {
+                sh 'git diff --name-only $GIT_PREVIOUS_COMMIT'
+            }
+        }
     }
 }
